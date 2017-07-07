@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+		
+
+<input class="stuff" type="text" placeholder="type here">
+<button class="button">Submit</button>
+
+
+
+<script>
+$(".button").on("click", function(){
+	var inputInfo = $(".stuff").val();
+
+	$.ajax({
+		url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+		type: 'GET',		
+		data: {
+			"api_key" : "10f98bc2faea4649b14187d0fddc69a3",
+			"q" : inputInfo
+		}
+	})
+	.done(function(result) {
+		console.log(result);
+	})
+	.fail(function() {
+		console.log("error");
+	})
+
+})
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
